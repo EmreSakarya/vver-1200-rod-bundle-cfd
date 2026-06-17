@@ -1,0 +1,7 @@
+# Star-CCM+ simulation files (large binaries)
+*.sim
+*.sim~
+*.sim.*
+# macro / scratch
+*.java.class
+__pycache__/

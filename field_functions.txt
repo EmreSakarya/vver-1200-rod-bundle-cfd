@@ -1,0 +1,19 @@
+Star-CCM+ heat-generation field functions
+==========================================
+(VVER-1200 19-rod hexagonal mini-bundle, sinusoidal axial power source)
+
+Outer rods  (r > 18 mm, power factor f = 0.97):
+  5.6346e8 * sin(3.14159265359 * $$Position[2] / 3.75)
+
+Inner rods  (r <= 18 mm, power factor f = 0.88):
+  5.1118e8 * sin(3.14159265359 * $$Position[2] / 3.75)
+
+Radial selector (true => outer-ring rod):
+  sqrt( ($$Position[0]*$$Position[0]) + ($$Position[1]*$$Position[1]) ) > 0.018
+
+Central guide tube: q''' = 0 (no heat source assigned).
+
+Units: W/m^3 ; $$Position[2] is the axial coordinate z in metres, z in [0, 0.375].
+Core-average volumetric heat rate q_bar = 3.698e8 W/m^3 over the full 3.75 m height;
+the 0.5*pi normalization in the prefactors restores the core-average once the
+sin profile is integrated.
